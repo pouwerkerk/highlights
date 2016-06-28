@@ -161,9 +161,9 @@ class Highlights
         lineTokens.pop()
 
     html = '<pre class="editor editor-colors">'
-    for tokens in lineTokens
+    for tokens, i in lineTokens
       scopeStack = []
-      html += '<div class="line">'
+      html += "<div class=\"line\" id=\"L#{ i + 1 }\">"
       for {value, scopes} in tokens
         value = ' ' unless value
         html = @updateScopeStack(scopeStack, scopes, html)
