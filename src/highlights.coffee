@@ -160,17 +160,17 @@ class Highlights
       if lastLineTokens.length is 1 and lastLineTokens[0].value is ''
         lineTokens.pop()
 
-    html = '<table class="source"><tbody>'
+    html = '<ul class="source-code">'
     for tokens, i in lineTokens
       scopeStack = []
-      html += "<tr class=\"line\" id=\"L#{ i + 1 }\"><th class=\"line-numbers\"><a href=\"#L#{ i + 1 }\"></a></th><td class=\"code\">"
+      html += "<li class=\"line\" id=\"L#{ i + 1 }\"><span class=\"line-numbers\"><a href=\"#L#{ i + 1 }\"></a></span><span class=\"code\">"
       for {value, scopes} in tokens
         value = ' ' unless value
         html = @updateScopeStack(scopeStack, scopes, html)
         html += "<span>#{@escapeString(value)}</span>"
       html = @popScope(scopeStack, html) while scopeStack.length > 0
-      html += '</td></tr>'
-    html += '</tbody></table>'
+      html += '</span></li>'
+    html += '</ul>'
     html
 
   loadGrammarsSync: ->
