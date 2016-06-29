@@ -163,7 +163,7 @@ class Highlights
     html = '<table class="source"><tbody>'
     for tokens, i in lineTokens
       scopeStack = []
-      html += "<tr class=\"line\" id=\"L#{ i + 1 }\"><th class=\"line-numbers\"><a href=\"#L#{ i + 1 }\">#{ i + 1 }</a></th><td class=\"code\">"
+      html += "<tr class=\"line\" id=\"L#{ i + 1 }\"><th class=\"line-numbers\"><a href=\"#L#{ i + 1 }\"></a></th><td class=\"code\">"
       for {value, scopes} in tokens
         value = ' ' unless value
         html = @updateScopeStack(scopeStack, scopes, html)

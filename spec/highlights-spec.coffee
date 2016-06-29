@@ -6,33 +6,33 @@ describe "Highlights", ->
     it "includes the grammar when the path is a file", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'include1')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
 
     it "includes the grammars when the path is a directory", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes', 'include1.cson'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'include1')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
 
     it "overrides built-in grammars", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       html = highlights.highlightSync(fileContents: 's = "test"', scopeName: 'source.coffee')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></td></tr></tbody></table>'
 
   describe "highlightSync", ->
     it "returns an HTML string", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="text plain null-grammar"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="text plain null-grammar"><span>test</span></span></td></tr></tbody></table>'
 
     it "uses the given scope name as the grammar to tokenize with", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'source.coffee')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
 
     it "uses the best grammar match when no scope name is specified", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test', filePath: 'test.coffee')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
 
   describe "requireGrammarsSync", ->
     it "loads the grammars from a file-based npm module path", ->
@@ -49,7 +49,7 @@ describe "Highlights", ->
       highlights = new Highlights()
       highlights.requireGrammarsSync(modulePath: require.resolve('language-erlang/package.json'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'source.coffee')
-      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+      expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
 
   #
   # async tests
@@ -60,7 +60,7 @@ describe "Highlights", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       highlights.highlight(fileContents: 'test', scopeName: 'include1', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
         done()
       )
 
@@ -68,14 +68,14 @@ describe "Highlights", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes', 'include1.cson'))
       highlights.highlight fileContents: 'test', scopeName: 'include1', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="include1"><span>test</span></span></td></tr></tbody></table>'
         done()
 
     it "overrides built-in grammars", (done) ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       highlights.highlight(fileContents: 's = "test"', scopeName: 'source.coffee',(err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></td></tr></tbody></table>'
         done()
       )
 
@@ -84,20 +84,20 @@ describe "Highlights", ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="text plain null-grammar"><span>test</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="text plain null-grammar"><span>test</span></span></td></tr></tbody></table>'
         done()
 
     it "uses the given scope name as the grammar to tokenize with", (done) ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', scopeName: 'source.coffee', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
         done()
 
     it "uses the best grammar match when no scope name is specified", (done) ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', filePath: 'test.coffee', (err, html) ->
-        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+        expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
         done()
 
   describe "async: requireGrammars", ->
@@ -120,5 +120,5 @@ describe "Highlights", ->
       highlights.requireGrammars modulePath: require.resolve('language-erlang/package.json'), (err, html) ->
         highlights.highlight fileContents: 'test', scopeName: 'source.coffee', (err,html) ->
           expect(!err).toBe true
-          expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1">1</a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
+          expect(html).toBe '<table class="source"><tbody><tr class="line" id="L1"><th class="line-numbers"><a href="#L1"></a></th><td class="code"><span class="source coffee"><span>test</span></span></td></tr></tbody></table>'
           done()
