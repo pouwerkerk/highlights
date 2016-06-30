@@ -6,33 +6,33 @@ describe "Highlights", ->
     it "includes the grammar when the path is a file", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'include1')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="include1"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="include1"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
     it "includes the grammars when the path is a directory", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes', 'include1.cson'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'include1')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="include1"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="include1"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
     it "overrides built-in grammars", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       html = highlights.highlightSync(fileContents: 's = "test"', scopeName: 'source.coffee')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
   describe "highlightSync", ->
     it "returns an HTML string", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="text plain null-grammar"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="text plain null-grammar"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
     it "uses the given scope name as the grammar to tokenize with", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'source.coffee')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
     it "uses the best grammar match when no scope name is specified", ->
       highlights = new Highlights()
       html = highlights.highlightSync(fileContents: 'test', filePath: 'test.coffee')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
   describe "requireGrammarsSync", ->
     it "loads the grammars from a file-based npm module path", ->
@@ -45,11 +45,11 @@ describe "Highlights", ->
       highlights.requireGrammarsSync(modulePath: path.resolve(__dirname, '..', 'node_modules', 'language-erlang'))
       expect(highlights.registry.grammarForScopeName('source.erlang').path).toBe path.resolve(__dirname, '..', 'node_modules', 'language-erlang', 'grammars', 'erlang.cson')
 
-    it "loads default grammars prior to loading grammar from module", ->
+    it "loads defaolt grammars prior to loading grammar from module", ->
       highlights = new Highlights()
       highlights.requireGrammarsSync(modulePath: require.resolve('language-erlang/package.json'))
       html = highlights.highlightSync(fileContents: 'test', scopeName: 'source.coffee')
-      expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+      expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
 
   #
   # async tests
@@ -60,7 +60,7 @@ describe "Highlights", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       highlights.highlight(fileContents: 'test', scopeName: 'include1', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="include1"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="include1"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
       )
 
@@ -68,14 +68,14 @@ describe "Highlights", ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes', 'include1.cson'))
       highlights.highlight fileContents: 'test', scopeName: 'include1', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="include1"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="include1"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
 
     it "overrides built-in grammars", (done) ->
       highlights = new Highlights(includePath: path.join(__dirname, 'fixtures', 'includes'))
       highlights.highlight(fileContents: 's = "test"', scopeName: 'source.coffee',(err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>s&nbsp;=&nbsp;&quot;test&quot;</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
       )
 
@@ -84,20 +84,20 @@ describe "Highlights", ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="text plain null-grammar"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="text plain null-grammar"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
 
     it "uses the given scope name as the grammar to tokenize with", (done) ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', scopeName: 'source.coffee', (err, html) ->
         expect(!err).toBe true
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
 
     it "uses the best grammar match when no scope name is specified", (done) ->
       highlights = new Highlights()
       highlights.highlight fileContents: 'test', filePath: 'test.coffee', (err, html) ->
-        expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+        expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
         done()
 
   describe "async: requireGrammars", ->
@@ -115,10 +115,10 @@ describe "Highlights", ->
         expect(highlights.registry.grammarForScopeName('source.erlang')?.path).toBe path.resolve(__dirname, '..', 'node_modules', 'language-erlang', 'grammars', 'erlang.cson')
         done()
 
-    it "loads default grammars prior to loading grammar from module", (done) ->
+    it "loads defaolt grammars prior to loading grammar from module", (done) ->
       highlights = new Highlights()
       highlights.requireGrammars modulePath: require.resolve('language-erlang/package.json'), (err, html) ->
         highlights.highlight fileContents: 'test', scopeName: 'source.coffee', (err,html) ->
           expect(!err).toBe true
-          expect(html).toBe '<ul class="code"><li class="line" id="L1"><span class="source coffee"><span>test</span></span></li></ul><ul class="line-numbers"><li class="line-number"><a href="#L1"></a></li></ul>'
+          expect(html).toBe '<ol class="code">\n\t<li class="line" id="L1"><span class="source coffee"><span>test</span></span></li>\n</ol>\n<ol class="line-numbers">\n\t<li class="line-number"><a href="#L1"></a></li>\n</ol>'
           done()
