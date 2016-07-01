@@ -2,15 +2,20 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    <style>
     // this is the main highlight theme, see README for more details
 @import (inline) "../vendor/highlights/base16-tomorrow-light-theme.css";
 
+    <style>
 body {
     padding: 0;
     margin: 0;
     font-family: "Source Code Pro", monospace;
     font-size: 12pt;
+}
+
+.source-code {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 .line-numbers
@@ -28,13 +33,6 @@ body {
     overflow-x:scroll;
 }
 
-body
-{
-    margin:0;
-    display: flex;
-    flex-direction: row-reverse;
-}
-
 ol {
     display: inline-block;
 }
@@ -48,60 +46,82 @@ ol {
     width: 100%;
 }
 
+
+
     </style>
     </head>
     <body>
-        <div class="right">
-            <ol>
-                <li>byebyebyebye</li>
-                <li class="highlight">byebyebyebyebyebyebye</li>
-                <li>byebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebye</li>
-            </ol>
-        </div>
-        <div class="line-numbers">
-            <ol>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>                <li>1</li>
-                <li>1</li>
-            </ol>
+        <div class="source-code">
+            <div class="right">
+                <ol>
+                    <li>byebyebyebye</li>
+                    <li class="highlight">byebyebyebyebyebyebye</li>
+                    <li>byebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebyebye</li>
+                </ol>
+            </div>
+            <div class="line-numbers">
+                <ol>
+                    <li><a href="#L1"></a></li>
+                    <li><a href="#L2"></a></li>
+                    <li><a href="#L3"></a></li>
+                    <li><a href="#L4"></a></li>
+                    <li><a href="#L5"></a></li>
+                    <li><a href="#L6"></a></li>
+                    <li><a href="#L7"></a></li>
+                    <li><a href="#L8"></a></li>
+                    <li><a href="#L9"></a></li>
+                    <li><a href="#L10"></a></li>
+                    <li><a href="#L11"></a></li>
+                    <li><a href="#L12"></a></li>
+                    <li><a href="#L13"></a></li>
+                    <li><a href="#L14"></a></li>
+                    <li><a href="#L15"></a></li>
+                    <li><a href="#L16"></a></li>
+                    <li><a href="#L17"></a></li>
+                    <li><a href="#L18"></a></li>
+                    <li><a href="#L19"></a></li>
+                    <li><a href="#L20"></a></li>
+                    <li><a href="#L21"></a></li>
+                    <li><a href="#L22"></a></li>
+                    <li><a href="#L23"></a></li>
+                    <li><a href="#L24"></a></li>
+                    <li><a href="#L25"></a></li>
+                    <li><a href="#L26"></a></li>
+                    <li><a href="#L27"></a></li>
+                    <li><a href="#L28"></a></li>
+                    <li><a href="#L29"></a></li>
+                    <li><a href="#L30"></a></li>
+                    <li><a href="#L31"></a></li>
+                    <li><a href="#L32"></a></li>
+                    <li><a href="#L33"></a></li>
+                    <li><a href="#L34"></a></li>
+                    <li><a href="#L35"></a></li>
+                    <li><a href="#L36"></a></li>
+                    <li><a href="#L37"></a></li>
+                    <li><a href="#L38"></a></li>
+                    <li><a href="#L39"></a></li>
+                    <li><a href="#L40"></a></li>
+                    <li><a href="#L41"></a></li>
+                    <li><a href="#L42"></a></li>
+                    <li><a href="#L43"></a></li>
+                    <li><a href="#L44"></a></li>
+                    <li><a href="#L45"></a></li>
+                    <li><a href="#L46"></a></li>
+                    <li><a href="#L47"></a></li>
+                    <li><a href="#L48"></a></li>
+                    <li><a href="#L49"></a></li>
+                    <li><a href="#L50"></a></li>
+                    <li><a href="#L51"></a></li>
+                    <li><a href="#L52"></a></li>
+                    <li><a href="#L53"></a></li>
+                    <li><a href="#L54"></a></li>
+                    <li><a href="#L55"></a></li>
+                    <li><a href="#L56"></a></li>
+                    <li><a href="#L57"></a></li>
+                    <li><a href="#L58"></a></li>
+                    <li><a href="#L59"></a></li>
+                </ol>
+            </div>
         </div>
     </body>
 </html>
