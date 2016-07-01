@@ -18,14 +18,7 @@ body {
     flex-direction: row-reverse;
 }
 
-.line-numbers
-{
-    background:red;
-    min-height:100vh;
-    display:inline-block;
-}
-
-.right
+.code
 {
     background:blue;
     min-height:100vh;
@@ -37,7 +30,7 @@ ol {
     display: inline-block;
 }
 
-.right ol {
+.code ol {
     background: rebeccapurple;
 }
 
@@ -46,13 +39,56 @@ ol {
     width: 100%;
 }
 
+.code ol, .line-numbers ol {
+    padding: 0.5em;
+    margin: 0;
+    list-style-type: none;
+}
 
+.line-numbers {
+    counter-reset: line-numbers;
+    background: #f7f7f7;
+    min-height:100vh;
+    display:inline-block;
+
+    text-align: right;
+    padding-left: 1em;
+    border-right: 1pt solid #e4e4e4;
+    padding-left: 0.75em;
+    /* min-height: calc(100vh - 1em); */
+
+    /* disable selection */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.line-numbers ol {
+    list-style-type: none;
+}
+
+.line-numbers a {
+    color: #999;
+    text-decoration: none;
+}
+
+.line-numbers a:before {
+    counter-increment: line-numbers;
+    content: counter(line-numbers);
+}
+
+.line-numbers a:hover {
+    color: #000;
+}
 
     </style>
     </head>
     <body>
         <div class="source-code">
-            <div class="right">
+            <div class="code">
                 <ol>
                     <li>byebyebyebye</li>
                     <li class="highlight">byebyebyebyebyebyebye</li>
@@ -90,7 +126,7 @@ ol {
                     <li><a href="#L27"></a></li>
                     <li><a href="#L28"></a></li>
                     <li><a href="#L29"></a></li>
-                    <li><a href="#L30"></a></li>
+                    <li><a href="#L30"></a></li><!--
                     <li><a href="#L31"></a></li>
                     <li><a href="#L32"></a></li>
                     <li><a href="#L33"></a></li>
@@ -119,7 +155,7 @@ ol {
                     <li><a href="#L56"></a></li>
                     <li><a href="#L57"></a></li>
                     <li><a href="#L58"></a></li>
-                    <li><a href="#L59"></a></li>
+                    <li><a href="#L59"></a></li> -->
                 </ol>
             </div>
         </div>
