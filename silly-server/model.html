@@ -2,8 +2,9 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-    // this is the main highlight theme, see README for more details
-@import (inline) "../vendor/highlights/base16-tomorrow-light-theme.css";
+    <link href='https://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+    <style>// this is the main highlight theme, see README for more details
+@import (inline) "../vendor/highlights/base16-tomorrow-light-theme.css";</style>
 
     <style>
 body {
@@ -20,14 +21,9 @@ body {
 
 .code
 {
-    background:blue;
     min-height:100vh;
     flex-grow:1;
     overflow-x:scroll;
-}
-
-ol {
-    display: inline-block;
 }
 
 .code ol {
@@ -36,13 +32,17 @@ ol {
 
 .highlight {
     background: yellow;
-    width: 100%;
 }
 
 .code ol, .line-numbers ol {
-    padding: 0.5em;
+    padding: 0.5em 0;
     margin: 0;
     list-style-type: none;
+    display: inline-block;
+}
+
+.code li {
+    padding: 0 0.5em
 }
 
 .line-numbers {
