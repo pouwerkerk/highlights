@@ -1,0 +1,324 @@
+atom-text-editor,
+:host {
+  background-color: #ffffff;
+  color: #1d1f21;
+}
+atom-text-editor .wrap-guide,
+:host .wrap-guide {
+  background-color: #e0e0e0;
+}
+atom-text-editor .indent-guide,
+:host .indent-guide {
+  color: #e0e0e0;
+}
+atom-text-editor .invisible-character,
+:host .invisible-character {
+  color: #c5c8c6;
+}
+atom-text-editor .gutter,
+:host .gutter {
+  background-color: #ffffff;
+  color: #b4b7b4;
+}
+atom-text-editor .gutter .line-number,
+:host .gutter .line-number {
+  padding: 0 0.25em 0 0.5em;
+  -webkit-font-smoothing: antialiased;
+}
+atom-text-editor .gutter .line-number.cursor-line,
+:host .gutter .line-number.cursor-line {
+  background-color: #e0e0e0;
+  color: #373b41;
+}
+atom-text-editor .gutter .line-number.cursor-line-no-selection,
+:host .gutter .line-number.cursor-line-no-selection {
+  color: #373b41;
+}
+atom-text-editor .gutter .line-number.folded,
+:host .gutter .line-number.folded,
+atom-text-editor .gutter .line-number:after,
+:host .gutter .line-number:after,
+atom-text-editor .fold-marker:after,
+:host .fold-marker:after {
+  color: #b4b7b4;
+}
+atom-text-editor .invisible,
+:host .invisible {
+  color: #1d1f21;
+}
+atom-text-editor .cursor,
+:host .cursor {
+  color: #1d1f21;
+}
+atom-text-editor .selection .region,
+:host .selection .region {
+  background-color: #e0e0e0;
+}
+atom-text-editor .bracket-matcher .region,
+:host .bracket-matcher .region {
+  border-color: #b4b7b4;
+}
+.comment {
+  color: #969896;
+}
+.entity.name.type {
+  color: #f0c674;
+}
+.entity.other.inherited-class {
+  color: #b5bd68;
+}
+.keyword {
+  color: #b294bb;
+}
+.keyword.control {
+  color: #b294bb;
+}
+.keyword.operator {
+  color: #1d1f21;
+}
+.keyword.other.special-method {
+  color: #81a2be;
+}
+.keyword.other.unit {
+  color: #de935f;
+}
+.storage {
+  color: #b294bb;
+}
+.constant {
+  color: #de935f;
+}
+.constant.character.escape {
+  color: #8abeb7;
+}
+.constant.numeric {
+  color: #de935f;
+}
+.constant.other.color {
+  color: #8abeb7;
+}
+.constant.other.symbol {
+  color: #b5bd68;
+}
+.variable {
+  color: #cc6666;
+}
+.variable.interpolation {
+  color: #a3685a;
+}
+.variable.parameter.function {
+  color: #1d1f21;
+}
+.invalid.illegal {
+  background-color: #cc6666;
+  color: #ffffff;
+}
+.string {
+  color: #b5bd68;
+}
+.string.regexp {
+  color: #8abeb7;
+}
+.string.regexp .source.ruby.embedded {
+  color: #f0c674;
+}
+.string.other.link {
+  color: #cc6666;
+}
+.punctuation.definition.parameters,
+.punctuation.definition.array {
+  color: #1d1f21;
+}
+.punctuation.definition.heading,
+.punctuation.definition.identity {
+  color: #81a2be;
+}
+.punctuation.definition.bold {
+  color: #f0c674;
+  font-weight: bold;
+}
+.punctuation.definition.italic {
+  color: #b294bb;
+  font-style: italic;
+}
+.punctuation.section.embedded {
+  color: #a3685a;
+}
+.support.class {
+  color: #f0c674;
+}
+.support.function {
+  color: #8abeb7;
+}
+.support.function.any-method {
+  color: #81a2be;
+}
+.entity.name.function {
+  color: #81a2be;
+}
+.entity.name.class,
+.entity.name.type.class {
+  color: #f0c674;
+}
+.entity.name.section {
+  color: #81a2be;
+}
+.entity.name.tag {
+  color: #cc6666;
+}
+.entity.other.attribute-name {
+  color: #de935f;
+}
+.entity.other.attribute-name.id {
+  color: #81a2be;
+}
+.meta.class {
+  color: #f0c674;
+}
+.meta.link {
+  color: #de935f;
+}
+.meta.require {
+  color: #81a2be;
+}
+.meta.selector {
+  color: #b294bb;
+}
+.meta.separator {
+  background-color: #373b41;
+  color: #1d1f21;
+}
+.meta.tag {
+  color: #1d1f21;
+}
+.none {
+  color: #1d1f21;
+}
+.markup.bold {
+  color: #de935f;
+  font-weight: bold;
+}
+.markup.changed {
+  color: #b294bb;
+}
+.markup.deleted {
+  color: #cc6666;
+}
+.markup.italic {
+  color: #b294bb;
+  font-style: italic;
+}
+.markup.heading {
+  color: #cc6666;
+}
+.markup.heading .punctuation.definition.heading {
+  color: #81a2be;
+}
+.markup.link {
+  color: #81a2be;
+}
+.markup.inserted {
+  color: #b5bd68;
+}
+.markup.quote {
+  color: #de935f;
+}
+.markup.raw {
+  color: #b5bd68;
+}
+.source.gfm .markup {
+  -webkit-font-smoothing: auto;
+}
+.source.gfm .link .entity {
+  color: #8abeb7;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json {
+  color: #cc6666;
+}
+.source.json .meta.structure.dictionary.json > .string.quoted.json > .punctuation.string {
+  color: #cc6666;
+}
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json,
+.source.json .meta.structure.dictionary.json > .value.json > .string.quoted.json > .punctuation,
+.source.json .meta.structure.array.json > .value.json > .string.quoted.json > .punctuation {
+  color: #b5bd68;
+}
+.source.json .meta.structure.dictionary.json > .constant.language.json,
+.source.json .meta.structure.array.json > .constant.language.json {
+  color: #8abeb7;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Source Code Pro", monospace;
+    font-size: 12pt;
+}
+
+.source-code {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.code ol, .line-numbers ol {
+    padding: 0.5em 0;
+    margin: 0;
+    list-style-type: none;
+    display: inline-block;
+    min-width: 100%;
+}
+
+.code
+{
+    min-height:100vh;
+    flex-grow:1;
+    overflow-x:scroll;
+}
+
+.code li {
+    padding: 0 0.5em
+}
+
+.line-numbers {
+    counter-reset: line-numbers;
+    background: #f7f7f7;
+    min-height:100vh;
+    display:inline-block;
+
+    text-align: right;
+
+    border-right: 1pt solid #e4e4e4;
+    padding: 0 0.5em 0 0.75em;
+    /* min-height: calc(100vh - 1em); */
+
+    /* disable selection */
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none;   /* Chrome/Safari/Opera */
+    -khtml-user-select: none;    /* Konqueror */
+    -moz-user-select: none;      /* Firefox */
+    -ms-user-select: none;       /* Internet Explorer/Edge */
+    user-select: none;
+}
+
+.line-numbers ol {
+    list-style-type: none;
+}
+
+.line-numbers a {
+    color: #999;
+    text-decoration: none;
+}
+
+.line-numbers a:before {
+    counter-increment: line-numbers;
+    content: counter(line-numbers);
+}
+
+.line-numbers a:hover {
+    color: #000;
+}
+
+.code li:target {
+    background: #ffa;
+    border: 1pt solid rgba(255,238,170,0.75);
+}
